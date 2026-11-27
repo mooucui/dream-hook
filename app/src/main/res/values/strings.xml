@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">极速报名·模块</string>
+    <string name="mod_desc">到梦空间极速报名（LSPosed）。抓请求、扫类名、预留直调口子。默认只记录不篡改。</string>
+</resources>

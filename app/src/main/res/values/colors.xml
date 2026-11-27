@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_black">#0B0C10</color>
+    <color name="bg_deep">#111420</color>
+    <color name="panel">#16FFFFFF</color>
+    <color name="stroke_soft">#26A6A2DC</color>
+    <color name="text_primary">#E8E8F2</color>
+    <color name="text_second">#B9BCCB</color>
+    <color name="text_muted">#7C8093</color>
+    <color name="accent_indigo">#A6A2DC</color>
+    <color name="accent_glow">#C9C2FF</color>
+    <color name="gold_rim">#D8C39A</color>
+</resources>

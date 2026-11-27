@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 炭黑底 -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#0B0C10"
+                android:endColor="#151825" />
+        </shape>
+    </item>
+
+    <!-- 顶部靛紫弥散光 -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="520dp"
+                android:centerX="0.5"
+                android:centerY="0.08"
+                android:startColor="#2A7C74D8"
+                android:centerColor="#127C74D8"
+                android:endColor="#000B0C10" />
+        </shape>
+    </item>
+
+    <!-- 右下角薄金光 -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="420dp"
+                android:centerX="0.92"
+                android:centerY="0.96"
+                android:startColor="#1AD8C39A"
+                android:endColor="#000B0C10" />
+        </shape>
+    </item>
+
+    <!-- 顶部一条极淡的水平光带，制造纵深 -->
+    <item android:gravity="top" android:height="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:startColor="#00000000"
+                android:centerColor="#33C9C2FF"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+</layer-list>

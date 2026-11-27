@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ======================= 页 1：抢票 ======================= -->
+        <ScrollView
+            android:id="@+id/pageGrab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <!-- 状态卡 -->
+                <LinearLayout style="@style/Card">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="STATUS" />
+
+                    <TextView
+                        android:id="@+id/tvCapture"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="@color/text_second"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- 目标 -->
+                <LinearLayout style="@style/Card">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TARGET" />
+
+                    <TextView
+                        style="@style/Label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="活动 ID（多个用逗号隔开）" />
+
+                    <EditText
+                        android:id="@+id/etGrabIds"
+                        style="@style/Input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="17252103"
+                        android:inputType="number" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnArm"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_primary"
+                            android:text="开 抢"
+                            android:textColor="#F2F0FF"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/btnStop"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_ghost"
+                            android:text="停 止"
+                            android:textColor="@color/accent_glow"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 备用登录 -->
+                <LinearLayout style="@style/Card">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="FALLBACK LOGIN" />
+
+                    <TextView
+                        style="@style/Label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="抓不到登录态时，用账号自己登" />
+
+                    <EditText
+                        android:id="@+id/etAccount"
+                        style="@style/Input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="账号 / 手机号 / 学号"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        style="@style/Input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="密码"
+                        android:inputType="textPassword" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="密码只存本机私有目录，DES 加密后发给服务端"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- 节奏 -->
+                <LinearLayout style="@style/Card">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="RHYTHM" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="提前开火（秒）" />
+
+                            <EditText
+                                android:id="@+id/etLead"
+                                style="@style/Input"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="30"
+                                android:inputType="number" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="轮询间隔（毫秒）" />
+
+                            <EditText
+                                android:id="@+id/etInterval"
+                                style="@style/Input"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="200"
+                                android:inputType="number" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="超时（秒）" />
+
+                            <EditText
+                                android:id="@+id/etTimeout"
+                                style="@style/Input"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="300"
+                                android:inputType="number" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="开始时间戳（0=自动）" />
+
+                            <EditText
+                                android:id="@+id/etStartAt"
+                                style="@style/Input"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="0"
+                                android:inputType="number" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ======================= 页 2：日志 ======================= -->
+        <LinearLayout
+            android:id="@+id/pageLog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingBottom="0dp"
+                        android:text="LOG" />
+
+                    <Button
+                        android:id="@+id/btnClear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:background="@drawable/btn_ghost"
+                        android:minWidth="0dp"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="14dp"
+                        android:text="清空"
+                        android:textColor="@color/accent_glow"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/divider" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tvLog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="#CBCCD8"
+                        android:textIsSelectable="true"
+                        android:textSize="11sp" />
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ======================= 页 3：设置 ======================= -->
+        <ScrollView
+            android:id="@+id/pageSet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <LinearLayout style="@style/Card">
+
+                    <CheckBox
+                        android:id="@+id/cbEnabled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/accent_indigo"
+                        android:checked="true"
+                        android:text="总开关"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/divider" />
+
+                    <TextView
+                        style="@style/Label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="目标包名（留空=作用域里勾了哪个就干哪个）" />
+
+                    <EditText
+                        android:id="@+id/etPkg"
+                        style="@style/Input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="com.jingcai.apps.qualitydev"
+                        android:inputType="text" />
+
+                    <Button
+                        android:id="@+id/btnSave"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/btn_primary"
+                        android:text="保存配置"
+                        android:textColor="#F2F0FF"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/Card">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DEBUG" />
+
+                    <CheckBox
+                        android:id="@+id/cbNetlog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/accent_indigo"
+                        android:text="记录全部网络请求（很吵）"
+                        android:textColor="@color/text_second"
+                        android:textSize="13sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbScan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/accent_indigo"
+                        android:text="启动时扫 APK 类名（很慢）"
+                        android:textColor="@color/text_second"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/Card">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="HOW TO" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="4dp"
+                        android:text="1. LSPosed 启用本模块，作用域只勾「到梦空间」\n2. 强行停止到梦空间后重开，登录一次\n3. 回「抢票」页填活动 ID + 账号密码\n4. 点开抢，退后台别让它被杀"
+                        android:textColor="@color/text_second"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ======================= 页 4：验证码 ======================= -->
+        <ScrollView
+            android:id="@+id/pageCaptcha"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="gone"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/Card">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CAPTCHA" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="获取并识别滑块/点选/文字验证码"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/ivCaptchaPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/input_bg"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="验证码预览" />
+
+                    <EditText
+                        android:id="@+id/etCaptchaInput"
+                        style="@style/Input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="输入验证码内容"
+                        android:inputType="text" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnCaptchaRefresh"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_primary"
+                            android:text="刷新"
+                            android:textColor="#F2F0FF"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/btnCaptchaTest"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_ghost"
+                            android:text="本地识别"
+                            android:textColor="@color/accent_glow"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnCaptchaSubmit"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/btn_primary"
+                        android:text="提交验证码"
+                        android:textColor="#F2F0FF"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvCaptchaStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="monospace"
+                        android:text="点击刷新获取验证码"
+                        android:textColor="@color/text_second"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/Card">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="AUTO HELPER" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="4dp"
+                        android:text="• 遇到验证码时：点「刷新」拉取最新 → 手动或本地识别 → 填入 → 「提交」\n• 提交成功后会自动刷新下一张\n• 本地识别需集成 tess-two 或 ML Kit（未内置）\n• 滑块验证码：需手动在 App 内滑动，模块会降频等待\n• 所有验证码交互走同一套加密通道（DmCrypto）"
+                        android:textColor="@color/text_second"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+    <!-- ======================= 底部页签 ======================= -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#CC0D0F16"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tabGrab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:stateListAnimator="@null"
+            android:text="抢 票"
+            android:textColor="@color/tab_text"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/tabLog"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:stateListAnimator="@null"
+            android:text="日 志"
+            android:textColor="@color/tab_text"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/tabSet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:stateListAnimator="@null"
+            android:text="设 置"
+            android:textColor="@color/tab_text"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/tabCaptcha"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:stateListAnimator="@null"
+            android:text="验证码"
+            android:textColor="@color/tab_text"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>
